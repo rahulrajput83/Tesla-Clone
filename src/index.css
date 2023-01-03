@@ -1,0 +1,9 @@
+html {
+  scroll-snap-type: both mandatory;
+    scroll-behavior: smooth;
+}
+
+body, button {
+  margin: 0;
+  font-family: "Rubik", "sans-serif";
+}
