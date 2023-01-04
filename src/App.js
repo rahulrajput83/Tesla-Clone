@@ -1,5 +1,7 @@
 import React from 'react'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Navbar from './Components/Navbar'
+import CarDetail from './Pages/CarDetail'
 import Home from './Pages/Home'
 
 const carModel = [
@@ -23,10 +25,13 @@ const carModel = [
 
 function App() {
   return (
-    <>
+    <BrowserRouter>
       <Navbar />
-      <Home carModel={carModel} />
-    </>
+      <Routes>
+        <Route path='/' element={<Home carModel={carModel} />} />
+        <Route path='/car/:id' element={<CarDetail carModel={carModel} />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom';
 import './Home.scss'
 
 
@@ -32,8 +33,12 @@ function Home(props) {
                             <span>Schedule a Demo Drive</span>
                         </div>
                         <div className={`itemBottom ${classAni[i] ? 'Animate' : ''}`}>
-                            <button>Buy Now</button>
-                            <button>Custom Order</button>
+                            <Link className='button' to={`/car/${i}`}>
+                                <span>Buy Now</span>
+                            </Link>
+                            <Link className='button' to={`/car/${i}`}>
+                                <span>Custom Order</span>
+                            </Link>
                         </div>
                     </div>
                 )

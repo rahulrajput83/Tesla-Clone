@@ -59,7 +59,8 @@
             @media (min-width: 768px) {
                 flex-direction: row;
             }
-            button {
+            .button {
+                text-decoration: none;
                 background: #45484d;
                 border: none;
                 padding: 0.8rem;
@@ -70,6 +71,7 @@
                 font-size: 0.9rem;
                 cursor: pointer;
                 font-family: "Rubik", "sans-serif";
+                text-align: center;
                 @media (min-width: 768px) {
                     width: 20%;
                 }
