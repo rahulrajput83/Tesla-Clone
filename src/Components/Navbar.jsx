@@ -12,7 +12,7 @@ function Navbar() {
         <div className='CarData'>
             {CarData.map((e, i) => {
                 return (
-                    <span key={`CarData-${i}`}>{e}</span>
+                    <span onClick={() => window.location.replace(`/#${e}`)} key={`CarData-${i}`}>{e}</span>
                 )
             })}
         </div>

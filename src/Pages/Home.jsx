@@ -11,7 +11,6 @@ function Home(props) {
             const workObserver = new IntersectionObserver((entries, observer) => {
                 const [entry] = entries;
                 // ClassName
-                console.log(entry)
                 setClassAni([entry.isIntersecting, entry.isIntersecting, entry.isIntersecting, entry.isIntersecting])
             }, {
                 root: null,
@@ -21,14 +20,12 @@ function Home(props) {
         })
         
     }, [])
-    useEffect(() => {
-        console.log(classAni)
-    }, [classAni])
+    
     return (
         <div className='Home'>
             {props.carModel.map((e, i) => {
                 return (
-                    <div key={`carModel-${i}`} className='HomeItem'>
+                    <div id={e.name} key={`carModel-${i}`} className='HomeItem'>
                         <img src={e.image} alt='' />
                         <div className={`itemTop ${classAni[i] ? 'Animate' : ''}`}>
                             <span>{e.name}</span>
