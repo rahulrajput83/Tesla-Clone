@@ -1,0 +1,30 @@
+@mixin Button {
+    border: none;
+    padding: 0.65rem;
+    color: white;
+    font-family: "Rubik", "sans-serif";
+    width: 40%;
+    border-radius: 0.35rem;
+    font-size: 0.85rem;
+}
+.Blue {
+    @include Button();
+    background: #3e6ae1;
+    cursor: pointer;
+}
+
+.Gray {
+    @include Button();
+    background: #f4f4f4;
+    cursor: pointer;
+    color: black
+}
+
+.payment {
+    @include Button();
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    background: #3e6ae1;
+    width: 90%;
+    cursor: pointer;
+}
