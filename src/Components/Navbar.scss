@@ -1,5 +1,5 @@
 .Navbar {
-    display: none;
+    display: flex;
     position: fixed;
     top: 0;
     left: 0;
@@ -7,17 +7,19 @@
     width: 100%;
     justify-content: space-between;
     align-items: center;
-    padding: 0.7rem 2rem;
+    padding: 0.85rem 2rem;
     flex-direction: row;
     z-index: 10;
+    background: white;
     @media (min-width: 768px) {
-        display: flex;
+        background: transparent;
     }
+   
     img {
         width: 7rem;
     }
     .CarData {
-        display: flex;
+        display: none;
         align-items: center;
         justify-content: center;
         span {
@@ -29,6 +31,9 @@
             &:hover{
                 background: rgba(0, 0, 0, 0.07);
             }
+        }
+        @media (min-width: 768px) {
+            display: flex;
         }
     }
 }

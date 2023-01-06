@@ -236,6 +236,24 @@
         }
     }
 
+    .Chat {
+        position: fixed;
+        font-size: 1.6rem;
+        background: #fff;
+        padding: 1rem;
+        border-radius: 50%;
+        cursor: pointer;
+        filter: drop-shadow(0 0 15px rgba(0, 0, 0, 0.2));
+        right: 5%;
+        bottom: 6%;
+        z-index: 1;
+
+        @media (min-width: 768px) {
+            left: 2%;
+            bottom: 13%;
+        }
+    }
+
     .priceSection {
         position: fixed;
         bottom: -1%;
@@ -256,30 +274,36 @@
 
         .icon {
             margin: auto;
-            padding: 0.4rem;
+            padding: 0.65rem;
             background: white;
             border-radius: 50%;
             cursor: pointer;
-            box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.1);
+            border-radius: 50%;
+            background: #fff;
+            filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.2))
         }
+
         span {
             color: #43454a;
             font-size: 0.95rem;
             width: 100%;
             grid-column: span 2 / span 2;
             grid-column-end: 4;
+
             @media (min-width: 768px) {
                 grid-column: span 2 / span 2;
             }
-            
+
             &:first-child {
                 font-weight: 400;
             }
+
             &:last-child {
                 margin: auto;
                 font-size: 0.75rem;
             }
         }
+
         @media (min-width: 768px) {
             left: 35%;
             grid-template-columns: repeat(5, 1fr);

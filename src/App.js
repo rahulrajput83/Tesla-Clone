@@ -1,6 +1,7 @@
 import React from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Navbar from './Components/Navbar'
+import Navbar2 from './Components/Navbar2'
 import CarDetail from './Pages/CarDetail'
 import Home from './Pages/Home'
 
@@ -26,10 +27,10 @@ const carModel = [
 function App() {
   return (
     <BrowserRouter>
-      <Navbar />
+      
       <Routes>
-        <Route path='/' element={<Home carModel={carModel} />} />
-        <Route path='/car/:id' element={<CarDetail carModel={carModel} />} />
+        <Route path='/' element={<><Navbar /><Home carModel={carModel} /></>} />
+        <Route path='/car/:id' element={<><Navbar2 /><CarDetail carModel={carModel} /></>} />
       </Routes>
     </BrowserRouter>
   )

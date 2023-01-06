@@ -1,6 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
-import img from '../s.svg'
+import Logo from './Logo'
 import './Navbar.scss'
 
 const CarData = ["Model S", "Model 3", "Model X", "Model Y", "Solar Roof", "Solar Panels"]
@@ -16,9 +15,7 @@ function Navbar() {
     }
     return (
         <div className='Navbar'>
-            <Link to='/'>
-                <img src={img} alt='' />
-            </Link>
+            <Logo />
             <div className='CarData'>
                 {CarData.map((e, i) => {
                     return (

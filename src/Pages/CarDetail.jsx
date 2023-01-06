@@ -6,6 +6,8 @@ import { FaAngleDown, FaAngleLeft, FaAngleRight, FaAngleUp } from 'react-icons/f
 import comp1 from '../Images/compositor1.jpg';
 import comp2 from '../Images/compositor2.jpg';
 import comp3 from '../Images/compositor3.jpg'
+import { TbMessage } from 'react-icons/tb'
+import ChatSection from '../Components/ChatSection';
 
 const carImg = [comp1, comp2, comp3]
 
@@ -13,7 +15,8 @@ function CarDetail(props) {
     const { id } = useParams();
     const [data, setData] = useState();
     const [number, setNumber] = useState(0);
-    const [img, setImg] = useState('')
+    const [img, setImg] = useState('');
+    const [showChat, setShowChat] = useState(false)
 
     useEffect(() => {
         setImg(carImg[number])
@@ -119,12 +122,13 @@ function CarDetail(props) {
                 <Button className='payment' title='Continue to Payment' />
                 <FaAngleDown className='AngleDown' />
             </div>
-
+            <TbMessage onClick={() => setShowChat(!showChat)} className='Chat' />
             <div className='priceSection'>
                 <FaAngleUp className='icon' />
                 <span>$72,990 Vehicle Price</span>
                 <span>$65,190 After potential savings</span>
             </div>
+            <ChatSection showChat={showChat} setShowChat={setShowChat} />
         </div>
     )
 }
