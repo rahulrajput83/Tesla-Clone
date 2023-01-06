@@ -1,13 +1,16 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
+import { useWindowSize } from 'react-use';
 import './Home.scss'
 
 
 function Home(props) {
     const [classAni, setClassAni] = useState([false, false, false, false]);
+    const size = useWindowSize();
 
     useEffect(() => {
-        const arr = document.querySelectorAll('.HomeItem');
+        if(size.width > 768) {
+            const arr = document.querySelectorAll('.HomeItem');
         arr.forEach((target) => {
             const workObserver = new IntersectionObserver((entries, observer) => {
                 const [entry] = entries;
@@ -19,8 +22,9 @@ function Home(props) {
             });
             workObserver.observe(target)
         })
+        }
         
-    }, [])
+    }, [size])
     
     return (
         <div className='Home'>
