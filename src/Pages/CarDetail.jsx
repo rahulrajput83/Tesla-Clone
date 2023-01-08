@@ -10,29 +10,38 @@ import { TbMessage } from 'react-icons/tb'
 import ChatSection from '../Components/ChatSection';
 import PriceDetails from '../Components/PriceDetails';
 
-const carImg = [comp1, comp2, comp3]
-
 function CarDetail(props) {
     const { id } = useParams();
     const [data, setData] = useState();
     const [number, setNumber] = useState(0);
     const [img, setImg] = useState('');
     const [showChat, setShowChat] = useState(false);
-    const [showPrice, setShowPrice] = useState(false); 
+    const [showPrice, setShowPrice] = useState(false);
+    const [carImg, setCarImg] = useState([]) 
 
     useEffect(() => {
         setImg(carImg[number])
-    }, [number])
+    }, [number, carImg])
 
     useEffect(() => {
-        setData(props.carModel[id])
+        if(data) {
+            setCarImg([data.image, comp1, comp2, comp3])
+        }
+    }, [data])
+
+    useEffect(() => {
+        console.log(data)
+    }, [data])
+
+    useEffect(() => {
+        setData(props.carModel[id]);
     }, [props, id])
 
     const imgSlider = (title) => {
 
         if (title === 'Back') {
             if (number <= 0) {
-                let index = 2;
+                let index = 3;
                 setNumber(index)
             }
             else {
@@ -41,7 +50,7 @@ function CarDetail(props) {
             }
         }
         else {
-            if (number >= 2) {
+            if (number >= 3) {
                 let index = 0;
                 setNumber(index)
             }

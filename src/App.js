@@ -7,19 +7,19 @@ import Home from './Pages/Home'
 
 const carModel = [
   {
-    image: 'ModelY.jpg',
+    image: '/ModelY.jpg',
     name: 'Model Y'
   },
   {
-    image: 'Model3.jpg',
+    image: '/Model3.jpg',
     name: 'Model 3'
   },
   {
-    image: 'ModelS.jpg',
+    image: '/ModelS.jpg',
     name: 'Model S'
   },
   {
-    image: 'ModelX.jpg',
+    image: '/ModelX.jpg',
     name: 'Model X'
   }
 ]
