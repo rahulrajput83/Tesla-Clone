@@ -1,0 +1,109 @@
+.PriceDetails {
+    transition: all 1s ease-in-out;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    transition: all 0.5s ease-in-out;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    box-sizing: border-box;
+    background: rgba(0, 0, 0, 0.1);
+    left: 0;
+    right: 0;
+    z-index: 10;
+    backdrop-filter: blur(4px);
+    .PriceSection {
+        display: none;
+        transition: all 1s ease-in-out;
+        border-radius: 0.7rem;
+        width: 0px;
+        height: 0px;
+        background: #fff;
+        box-sizing: border-box;
+        overflow: hidden;
+        
+        flex-direction: column;
+        padding: 2rem;
+        position: relative;
+        .icon {
+            right: 0;
+            position: absolute;
+            margin-top: 1rem;
+            margin-right: 1rem;
+            font-size: 1.2rem;
+            cursor: pointer;
+            top: 0;
+        }
+        .title{
+            font-size: 1.5rem;
+            font-weight: 400;
+        }
+        .Options {
+            transition: all 1s ease-in-out;
+            display: flex;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+            background: #f4f4f4;
+            padding: 0.2rem;
+            justify-content: space-between;
+            border-radius: 0.4rem;
+            span {
+                transition: all 0.5s ease-in-out;
+                width: 100%;
+                border-radius: 0.4rem;
+                filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.1));
+                text-align: center;
+                padding: 0.65rem;
+                cursor: pointer;
+                font-size: 0.85rem;
+            }
+            .white {
+                background: #fff;
+            }
+        }
+        .total, .saving, .final, .fee {
+            display: flex;
+            justify-content: space-between;
+            margin: 0.5rem 0;
+        }
+        .total {
+            span {
+                font-weight: 500;
+                font-size: 0.95rem;
+            }
+        }
+        .saving, .fee {
+            span {
+                font-size: 0.85rem;
+            }
+        }
+        .final {
+            span {
+                font-weight: 500;
+                font-size: 0.85rem;
+            }
+        }
+        .line{
+            background: rgb(172, 170, 170);
+            height: 0.03rem;
+        }
+    }
+    .PriceVisible {
+        transition: all 1s ease-in-out;
+        width: 98%;
+        height: 85%;
+        display: flex;
+        @media (min-width: 768px) {
+            height: 70%;
+        width: 55%;
+        }
+    }
+}
+
+
+.PriceSetVisible {
+    transition: all 1s ease-in-out;
+    display: flex;
+}

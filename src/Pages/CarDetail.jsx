@@ -8,6 +8,7 @@ import comp2 from '../Images/compositor2.jpg';
 import comp3 from '../Images/compositor3.jpg'
 import { TbMessage } from 'react-icons/tb'
 import ChatSection from '../Components/ChatSection';
+import PriceDetails from '../Components/PriceDetails';
 
 const carImg = [comp1, comp2, comp3]
 
@@ -16,7 +17,8 @@ function CarDetail(props) {
     const [data, setData] = useState();
     const [number, setNumber] = useState(0);
     const [img, setImg] = useState('');
-    const [showChat, setShowChat] = useState(false)
+    const [showChat, setShowChat] = useState(false);
+    const [showPrice, setShowPrice] = useState(false); 
 
     useEffect(() => {
         setImg(carImg[number])
@@ -124,11 +126,12 @@ function CarDetail(props) {
             </div>
             <TbMessage onClick={() => setShowChat(!showChat)} className='Chat' />
             <div className='priceSection'>
-                <FaAngleUp className='icon' />
+                <FaAngleUp onClick={() => setShowPrice(!showPrice)} className='icon' />
                 <span>$72,990 Vehicle Price</span>
                 <span>$65,190 After potential savings</span>
             </div>
             <ChatSection showChat={showChat} setShowChat={setShowChat} />
+            <PriceDetails showPrice={showPrice} setShowPrice={setShowPrice} />
         </div>
     )
 }
