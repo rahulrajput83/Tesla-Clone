@@ -1,4 +1,5 @@
 import React from 'react';
+import Button from '../Components/Button';
 import Input from '../Components/Input';
 import './Checkout.scss';
 
@@ -7,10 +8,18 @@ function Checkout() {
         <div className='Checkout'>
             <div className='left'>
                 <div className='leftContent'>
-                    <Input className='InputField' title='First name' type='text' />
-                    <Input className='InputField' title='First name' type='text' />
-                    <Input className='InputField' title='First name' type='text' />
-                    <Input className='InputField' title='First name' type='text' />
+                    <span className='heading'>Confirm Order</span>
+                    <Input className='InputField' title='Email Address' type='text' />
+                    <Input className='InputField' title='Name on card' type='text' />
+                    <Input className='InputField' title='Card number' type='number' />
+                    <Input className='InputField' title='Expiration date (MM/YY)' type='text' />
+                    <Input className='InputField' title='Address' type='text' />
+                    <div className='City'>
+                    <Input className='InputField' title='City' type='text' />
+                    <Input className='InputField' title='State / Province' type='text' />
+                    <Input className='InputField' title='Postal code' type='text' />
+                    </div>
+                    <Button className='payment margin-top' title='Pay $41,940' />
                 </div>
             </div>
             <div className='right'>

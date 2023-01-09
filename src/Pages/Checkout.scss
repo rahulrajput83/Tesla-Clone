@@ -22,11 +22,26 @@
             width: 100%;
             display: flex;
             flex-direction: column;
+            box-sizing: border-box;
             @media (min-width:768px) {
                 width: 65%;
             }
+            .heading {
+                font-size: 1.5rem;
+                font-weight: 400;
+                text-decoration: underline;
+            }
+            .City {
+                display: flex;
+                flex-direction: column;
+                @media (min-width: 768px) {
+                    flex-direction: row;
+                    gap: 0.5rem;
+                }
+            }
             .InputField {
-                margin-top: 1.2rem;
+                box-sizing: border-box;
+                margin-top: 2rem;
                 box-sizing: border-box;
                 width: 100%;
                 display: flex;
@@ -43,7 +58,9 @@
                     border: none;
                     outline: none;
                     padding: 0.3rem 0.2rem;
-                    border-bottom: 0.12rem solid black;
+                    border-bottom: 0.12rem solid silver;
+                    font-size: 0.9rem;
+                    font-family: "Rubik", "sans-serif";
                 }
             }
         }
@@ -53,7 +70,6 @@
         width: 100%;
         display: flex;
         flex-direction: column;
-        justify-content: center;
         @media (min-width: 768px) {
             width: 30%;
         }
@@ -64,12 +80,12 @@
         .title{
             font-weight: 400;
             font-size: 1.1rem;
-            margin: auto;
+            margin:0 auto;
             margin-top: 1rem;
         }
         .desc {
             font-size: 0.85rem;
-            margin: auto;
+            margin: 0 auto;
             margin-bottom: 1rem;
         }
         .Order-Summary {
