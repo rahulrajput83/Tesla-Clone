@@ -1,0 +1,109 @@
+.Checkout{
+    display: flex;
+    flex-direction: column-reverse;
+    padding: 4rem 1rem;
+    box-sizing: border-box;
+    @media (min-width: 768px) {
+        flex-direction: row;
+        gap: 2rem;
+        padding: 4rem 5rem;
+    }
+    .left {
+        width: 100%;
+        box-sizing: border-box;
+        margin-top: 1.2rem;
+        @media (min-width: 768px) {
+            margin-top: 0;
+            width: 70%;
+
+        }
+        .leftContent {
+            margin: auto;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            @media (min-width:768px) {
+                width: 65%;
+            }
+            .InputField {
+                margin-top: 1.2rem;
+                box-sizing: border-box;
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: flex-start;
+                span {
+                    font-size: 0.9rem;
+                    margin-bottom: 0.2rem;
+                    color: #666362;
+                }
+                input {
+                    width: 93%;
+                    border: none;
+                    outline: none;
+                    padding: 0.3rem 0.2rem;
+                    border-bottom: 0.12rem solid black;
+                }
+            }
+        }
+    }
+    .right {
+        box-sizing: border-box;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        @media (min-width: 768px) {
+            width: 30%;
+        }
+        img{
+            width: 100%;
+            border-radius: 0.5rem;
+        }
+        .title{
+            font-weight: 400;
+            font-size: 1.1rem;
+            margin: auto;
+            margin-top: 1rem;
+        }
+        .desc {
+            font-size: 0.85rem;
+            margin: auto;
+            margin-bottom: 1rem;
+        }
+        .Order-Summary {
+            display: flex;
+            flex-direction: column;
+            background: rgba(177, 177, 177, 0.1);
+            width: 100%;
+            padding: 2rem;
+            box-sizing: border-box;
+            border-radius: 0.5rem;
+            gap: 0.3rem;
+            .titleOrder {
+                font-size: 1rem;
+                text-decoration: underline;
+                margin-bottom: 0.5rem;
+            }
+            .detail{
+                display: flex;
+                justify-content: space-between;
+                
+                span {
+                    font-size: 0.85rem;
+                }
+            }
+            .detail:last-child{
+                margin-top: 0.5rem;
+                span {
+                    font-size: 1rem;
+                    &:last-child{
+                        text-decoration: underline;
+                        
+                    }
+                }
+            }
+        }
+    }
+}

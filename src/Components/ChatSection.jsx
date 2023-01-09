@@ -24,11 +24,11 @@ function ChatSection(props) {
                     <MdClose onClick={() => props.setShowChat(!props.showChat)} className='closeIcon' />
                     <span className='heading'>Chat With Us</span>
                     <span className='description'>Provide your information</span>
-                    <Input title='First name' type='text' />
-                    <Input title='Last name (Optional)' type='text' />
-                    <Input title='Email address' type='email' />
-                    <Input title='Phone' type='tel' />
-                    <Input title='Zip Code' type='tel' />
+                    <Input className='InputField' title='First name' type='text' />
+                    <Input className='InputField' title='Last name (Optional)' type='text' />
+                    <Input className='InputField' title='Email address' type='email' />
+                    <Input className='InputField' title='Phone' type='tel' />
+                    <Input className='InputField' title='Zip Code' type='tel' />
                     <button>Start Chat</button>
                 </>
 

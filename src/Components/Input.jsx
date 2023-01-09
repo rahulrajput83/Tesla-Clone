@@ -2,7 +2,7 @@ import React from 'react'
 
 function Input(props) {
   return (
-    <div className='InputField'>
+    <div className={props.className}>
     <span>{props.title}</span>
     <input type={props.type} className='Input' />
     </div>
