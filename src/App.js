@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Navbar from './Components/Navbar'
 import Navbar2 from './Components/Navbar2'
 import CarDetail from './Pages/CarDetail'
+import Checkout from './Pages/Checkout'
 import Home from './Pages/Home'
 
 const carModel = [
@@ -27,10 +28,10 @@ const carModel = [
 function App() {
   return (
     <BrowserRouter>
-      
       <Routes>
         <Route path='/' element={<><Navbar /><Home carModel={carModel} /></>} />
         <Route path='/car/:id' element={<><Navbar2 /><CarDetail carModel={carModel} /></>} />
+        <Route path='/checkout' element={<><Navbar2 /><Checkout /></>} />
       </Routes>
     </BrowserRouter>
   )
