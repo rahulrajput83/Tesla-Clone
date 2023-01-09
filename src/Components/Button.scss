@@ -35,4 +35,11 @@
     margin-top: 5rem;
     width: 100%;
     margin-bottom: 0rem;
+    &:hover {
+        opacity: 0.95;
+    }
+    &:active {
+        outline: 0.18rem solid #3e6ae1;
+        outline-offset: 0.15rem;
+    }
 }
