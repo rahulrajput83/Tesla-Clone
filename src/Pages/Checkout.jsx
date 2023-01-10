@@ -1,9 +1,30 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import Button from '../Components/Button';
 import Input from '../Components/Input';
 import './Checkout.scss';
+import { formatPrice } from '../Components/formatter';
 
 function Checkout() {
+    const cart = useSelector((state) => state.cart);
+    const navigate = useNavigate();
+    const [taxPrice, setTaxPrice] = useState(0);
+    const [subTotal, setSubTotal] = useState(0);
+    const [total, setTotal] = useState(0);
+
+    useEffect(() => {
+        if(!cart.name) {
+            navigate('/')
+        }
+    }, [navigate, cart])
+
+    useEffect(() => {
+        setTaxPrice(formatPrice((cart.price * 2) / 100));
+        setSubTotal(formatPrice(cart.price));
+        setTotal(formatPrice(cart.price + 500 + ((cart.price * 2) / 100)))
+    }, [cart])
+
     return (
         <div className='Checkout'>
             <div className='left'>
@@ -19,18 +40,18 @@ function Checkout() {
                     <Input className='InputField' title='State / Province' type='text' />
                     <Input className='InputField' title='Postal code' type='text' />
                     </div>
-                    <Button className='payment margin-top' title='Pay $41,940' />
+                    <Button className='payment margin-top' title={`Pay ${total}`} />
                 </div>
             </div>
             <div className='right'>
                 <img src='/Model3.jpg' alt='' />
-                <span className='title'>Model 3</span>
-                <span className='desc'>This is test demo</span>
+                <span className='title'>{cart.name}</span>
+                <span className='desc'>{cart.desc}</span>
                 <div className='Order-Summary'>
                     <span className='titleOrder'>Order Summary</span>
                     <div className='detail'>
                         <span>Subtotal</span>
-                        <span>$41,940</span>
+                        <span>{subTotal}</span>
                     </div>
                     <div className='detail'>
                         <span>Shipping Estimate</span>
@@ -38,11 +59,11 @@ function Checkout() {
                     </div>
                     <div className='detail'>
                         <span>Tax Estimate</span>
-                        <span>$41,940</span>
+                        <span>{taxPrice}</span>
                     </div>
                     <div className='detail'>
                         <span>Grand Total</span>
-                        <span>$41,940</span>
+                        <span>{total}</span>
                     </div>
                 </div>
             </div>

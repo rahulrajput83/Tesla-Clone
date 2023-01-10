@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import Button from '../Components/Button';
 import './CarDetail.scss'
 import { FaAngleDown, FaAngleLeft, FaAngleRight, FaAngleUp } from 'react-icons/fa'
@@ -9,16 +9,30 @@ import comp3 from '../Images/compositor3.jpg'
 import { TbMessage } from 'react-icons/tb'
 import ChatSection from '../Components/ChatSection';
 import PriceDetails from '../Components/PriceDetails';
+import { useDispatch, useSelector } from 'react-redux';
+import { formatPrice } from '../Components/formatter';
 
-function CarDetail(props) {
+function CarDetail() {
+    const dispatch = useDispatch();
+    const carModel = useSelector((state) => state.carModel);
     const { id } = useParams();
     const [data, setData] = useState();
     const [number, setNumber] = useState(0);
     const [img, setImg] = useState('');
     const [showChat, setShowChat] = useState(false);
     const [showPrice, setShowPrice] = useState(false);
-    const [carImg, setCarImg] = useState([]) 
+    const [carImg, setCarImg] = useState([]);
+    const navigate = useNavigate();
+    const [price, setPrice] = useState(0)
 
+    const handleClick = () => {
+        let action = {
+            type: 'Cart',
+            payload: data
+        };
+        dispatch(action);
+        return navigate('/checkout')
+    }
     useEffect(() => {
         setImg(carImg[number])
     }, [number, carImg])
@@ -26,16 +40,14 @@ function CarDetail(props) {
     useEffect(() => {
         if(data) {
             setCarImg([data.image, comp1, comp2, comp3])
+            setPrice(formatPrice(data.price))
         }
     }, [data])
 
-    useEffect(() => {
-        console.log(data)
-    }, [data])
 
     useEffect(() => {
-        setData(props.carModel[id]);
-    }, [props, id])
+        setData(carModel[id]);
+    }, [carModel, id])
 
     const imgSlider = (title) => {
 
@@ -60,9 +72,7 @@ function CarDetail(props) {
             }
         }
     }
-    useEffect(() => {
-        console.log(number)
-    }, [number])
+    
     return (
         <div className='CarDetail'>
             <div className='left'>
@@ -130,14 +140,14 @@ function CarDetail(props) {
                     <Button className='Gray' title='Feature Details' />
                 </div>
                 <span className='keyHeading'>Order Your {data && data.name}</span>
-                <Button className='payment' title='Continue to Payment' />
+                <Button click={handleClick} className='payment' title='Continue to Payment' />
                 <FaAngleDown className='AngleDown' />
             </div>
             <TbMessage onClick={() => setShowChat(!showChat)} className='Chat' />
             <div className='priceSection'>
                 <FaAngleUp onClick={() => setShowPrice(!showPrice)} className='icon' />
-                <span>$72,990 Vehicle Price</span>
-                <span>$65,190 After potential savings</span>
+                <span>{price} Vehicle Price</span>
+                <span></span>
             </div>
             <ChatSection showChat={showChat} setShowChat={setShowChat} />
             <PriceDetails showPrice={showPrice} setShowPrice={setShowPrice} />

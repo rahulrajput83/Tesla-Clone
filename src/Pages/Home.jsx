@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react'
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { useWindowSize } from 'react-use';
 import './Home.scss'
 
 
-function Home(props) {
+function Home() {
+    const carModel = useSelector((state) => state.carModel)
     const [classAni, setClassAni] = useState([false, false, false, false]);
     const size = useWindowSize();
 
@@ -28,7 +30,7 @@ function Home(props) {
     
     return (
         <div className='Home'>
-            {props.carModel.map((e, i) => {
+            {carModel.map((e, i) => {
                 return (
                     <div id={e.name} key={`carModel-${i}`} className='HomeItem'>
                         <img src={e.image} alt='' />

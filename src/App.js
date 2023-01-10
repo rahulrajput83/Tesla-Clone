@@ -6,31 +6,12 @@ import CarDetail from './Pages/CarDetail'
 import Checkout from './Pages/Checkout'
 import Home from './Pages/Home'
 
-const carModel = [
-  {
-    image: '/ModelY.jpg',
-    name: 'Model Y'
-  },
-  {
-    image: '/Model3.jpg',
-    name: 'Model 3'
-  },
-  {
-    image: '/ModelS.jpg',
-    name: 'Model S'
-  },
-  {
-    image: '/ModelX.jpg',
-    name: 'Model X'
-  }
-]
-
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path='/' element={<><Navbar /><Home carModel={carModel} /></>} />
-        <Route path='/car/:id' element={<><Navbar2 /><CarDetail carModel={carModel} /></>} />
+        <Route path='/' element={<><Navbar /><Home /></>} />
+        <Route path='/car/:id' element={<><Navbar2 /><CarDetail /></>} />
         <Route path='/checkout' element={<><Navbar2 /><Checkout /></>} />
       </Routes>
     </BrowserRouter>
