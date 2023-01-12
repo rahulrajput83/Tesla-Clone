@@ -1,0 +1,89 @@
+.Confirmed {
+    display: flex;
+    flex-direction: column;
+    padding: 4rem 1rem;
+    box-sizing: border-box;
+    width: 100%;
+    margin: auto;
+    @media (min-width: 768px) {
+        width: 60%;
+        padding: 4rem 0;
+    }
+    .title {
+        font-size: 1.8rem;
+        font-weight: 500;
+    }
+    .desc {
+        font-size: 0.85rem;
+    }
+    .card1 {
+        margin-top: 2rem;
+        display: flex;
+        gap: 2rem;
+        border: 0.125rem solid rgb(241, 240, 240);
+        border-radius: 0.4rem 0.4rem 0 0;
+        padding: 2rem  1.5rem;
+        .item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            span {
+                &:first-child {
+                    font-size: 0.9rem;
+                    font-weight: 450;
+                }
+                &:last-child {
+                    font-size: 0.85rem;
+                    font-weight: 400;
+                }
+            }
+        }
+    }
+    .Order {
+        display: flex;
+        gap: 2rem;
+        flex-direction: column;
+        border: 0.125rem solid rgb(241, 240, 240);
+        border-radius: 0 0 0.4rem 0.4rem;
+        border-top: 0;
+        padding: 2rem  1.5rem;
+        @media (min-width: 768px) {
+            flex-direction: row;
+        }
+        .img {
+            width: 100%;
+            @media (min-width: 768px) {
+                width: 50rem;
+            }
+            img {
+                width: 100%;
+                border-radius: 0.4rem;
+            }
+        }
+        .data {
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            gap: 0.3rem;
+            span {
+                font-size: 0.85rem;
+                text-align: center;
+                @media (min-width: 768px) {
+                    text-align: left;
+                }
+                &:first-child {
+                    font-weight: 500;
+                    font-size: 1.1rem;
+                }
+            }
+            .icon {
+                position: absolute;
+                right: 2%;
+                font-size: 1.2rem;
+                color: green;
+            }
+            
+        }
+        
+    }
+}

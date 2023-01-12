@@ -25,7 +25,8 @@ export default function reducer(state = {
           price: 108940
         }
       ],
-    cart: {}
+    cart: {},
+    finalPrice: ''
 }, action) {
     switch (action.type) {
         case "Cart":
@@ -37,6 +38,11 @@ export default function reducer(state = {
             return {
                 ...state,
                 cart: {}
+            };
+        case 'Final':
+            return {
+              ...state,
+              finalPrice: action.payload
             };
         default:
             return state;

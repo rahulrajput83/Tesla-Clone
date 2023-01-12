@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import Button from '../Components/Button';
 import Input from '../Components/Input';
@@ -7,6 +7,7 @@ import './Checkout.scss';
 import { formatPrice } from '../Components/formatter';
 
 function Checkout() {
+    const dispatch = useDispatch();
     const cart = useSelector((state) => state.cart);
     const navigate = useNavigate();
     const [taxPrice, setTaxPrice] = useState(0);
@@ -25,6 +26,14 @@ function Checkout() {
         setTotal(formatPrice(cart.price + 500 + ((cart.price * 2) / 100)))
     }, [cart])
 
+    const handleClick = () => {
+        let action = {
+            type: 'Final',
+            payload: total
+        }
+        dispatch(action);
+        return navigate('/confirmed')
+    }
     return (
         <div className='Checkout'>
             <div className='left'>
@@ -40,7 +49,7 @@ function Checkout() {
                     <Input className='InputField' title='State / Province' type='text' />
                     <Input className='InputField' title='Postal code' type='text' />
                     </div>
-                    <Button className='payment margin-top' title={`Pay ${total}`} />
+                    <Button click={handleClick} className='payment margin-top' title={`Pay ${total}`} />
                 </div>
             </div>
             <div className='right'>
