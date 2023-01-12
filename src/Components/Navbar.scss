@@ -7,7 +7,7 @@
     width: 100%;
     justify-content: space-between;
     align-items: center;
-    padding: 0.85rem 2rem;
+    padding: 0.85rem;
     flex-direction: row;
     z-index: 10;
     background: transparent;
@@ -28,6 +28,7 @@
             padding: 0.5rem 1.2rem;
             cursor: pointer;
             transition: all 0.5s ease-in-out;
+            text-align: center;
             &:hover{
                 background: rgba(0, 0, 0, 0.07);
             }
@@ -36,4 +37,50 @@
             display: flex;
         }
     }
+    .SmallScreen {
+        border: none;
+        font-size: 0.9rem;
+        font-weight: 450;
+        display: block;
+        padding: 0.6rem 0.9rem;
+        border-radius: 0.35rem;
+        background: rgba(0, 0, 0, 0.1);
+        @media (min-width: 768px) {
+            display: none;
+        }
+    }
+}
+
+.menu {
+    position: fixed;
+    background: white;
+    width: 0;
+    right: 0;
+    transform: translateX(3rem);
+    top: 0;
+    z-index: 10;
+    bottom: 0;
+    height: 100%;
+    gap: 1rem;
+    box-sizing: border-box;
+    padding: 3rem 1rem 0 1rem;
+    transition: all 0.5s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    span {
+        border-bottom: 0.12rem solid silver;
+        padding-bottom: 0.5rem;
+    }
+    .icon {
+        position: absolute;
+        top: 3%;
+        right: 8%;
+        font-size: 1.3rem;
+    }
+}
+
+.open {
+    width: 75%;
+    transform: translateX(0);
+    transition: all 0.5s ease-in-out;
 }
