@@ -1,5 +1,6 @@
 import React from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import BackTop from './Components/BackTop'
 import Navbar from './Components/Navbar'
 import Navbar2 from './Components/Navbar2'
 import CarDetail from './Pages/CarDetail'
@@ -8,8 +9,10 @@ import Confirmed from './Pages/Confirmed'
 import Home from './Pages/Home'
 
 function App() {
+  
   return (
     <BrowserRouter>
+    <BackTop />
       <Routes>
         <Route path='/' element={<><Navbar /><Home /></>} />
         <Route path='/car/:id' element={<><Navbar2 /><CarDetail /></>} />
